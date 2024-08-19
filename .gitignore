@@ -1,0 +1,10 @@
+inventario_app/node_modules/
+inventario_app/.vscode/
+inventario_app/package-lock.json
+inventario_app/.angular/
+/.vscode/
+
+inventarios/.vscode/
+inventarios/target/
+inventarios/src/test/
+

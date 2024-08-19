@@ -1,0 +1,39 @@
+*, body{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.addProduct{
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin: 17px 85px;
+}
+
+.title{
+    margin: 70px 85px;
+}
+
+.form-control{
+
+    border: 3px solid #f6f5f6;
+    height: 49px;
+    padding: 17px;
+    border-radius: 13px;
+}
+
+.btn{
+    width: 13%;
+    font-weight: bold;
+}
+
+.mb-3{
+    font-weight:normal;
+    font-size: large;
+}
+
+.form-control::placeholder {
+    text-align: center; 
+    color: #d1d7dc;
+}

@@ -1,0 +1,38 @@
+
+<!---<div class="container">
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary"> 
+-->
+
+  <div class="container">
+
+  <div class="title text-center">
+      <h3>Sistema de Inventarios</h3>
+  </div>
+
+    <table class="table table-striped table-hover align-middler">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantify</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products">
+            <th scope="row">{{product.idproduct}}</th>
+            <td>{{product.description}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.quantity}}</td>
+            <td class="text-center">
+              <div class="text-center">
+                <button (click)="editProduct(product.idproduct)" class="btn btn-warning btn-sm me-3">Edit</button>
+                <button (click)="delProduct(product.idproduct)" class="btn btn-danger btn-sm me-3">Delete</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>

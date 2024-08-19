@@ -1,0 +1,28 @@
+<!--<div class="add-product" >
+-->
+
+<div class="addProduct" >
+    <div class="title text-center">
+        <h3>Agregar Producto</h3>
+    </div>
+
+    <form (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+            <label for="description" class="form-label">Description product</label>
+            <input type="text" class="form-control" id="description" name="description" required="true" [(ngModel)]="product.description" placeholder="Enter description product">
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Price product</label>
+            <input type="number" step="any" class="form-control" id="price" name="price" [(ngModel)]="product.price" placeholder="Enter price product">
+        </div>
+        <div class="mb-3">
+            <label for="quantity" class="form-label">Quantity product</label>
+            <input type="number"  step="any" class="form-control" id="quantity" name="quantity" [(ngModel)]="product.quantity" placeholder="Enter the quantity products">
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-warning btn-sm me-3">Add</button>
+            <a href="/products" class="btn btn-danger btn-sm">Back</a>
+        </div>
+    </form>
+
+</div>

@@ -1,0 +1,26 @@
+
+.navbar {
+    background-color: #febb4f; 
+    height: auto;
+  }
+
+.nav-link {
+    cursor: pointer;
+    color: #ffffff !important;;
+}
+
+.nav-link:hover {
+    color: #313131; /* Opcional: Cambia el color al pasar el mouse si lo deseas */
+}
+
+#logo{
+    font-size: larger;
+    font-weight: bold;
+
+}
+
+#main-nav{
+    display: flex;
+    justify-content: space-around; 
+    padding: 17px;
+}

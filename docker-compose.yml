@@ -1,0 +1,58 @@
+services:
+  mysql:
+    image: mysql:8
+    container_name: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    restart: always
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping" , "-h","localhost"]
+      timeout: 10s
+      retries: 10
+    ports:
+      - "3307:3306"
+    networks:
+      - fullstack
+
+  frontend:
+    image: browgly/product_managment:frontend
+    build:
+      context: ./inventario-app
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    networks:
+      - fullstack
+
+  inventarios:
+    image: browgly/product_managment:backend
+    build: 
+      context: ./inventarios
+      dockerfile: Dockerfile
+    mem_limit: 512m
+    environment:
+      - SPRING_APPLICATION_NAME=${SPRING_APPLICATION_NAME}
+      - SPRING_DATASOURCE_URL=${SPRING_DATASOURCE_URL}
+      - SPRING_DATASOURCE_USERNAME=${SPRING_DATASOURCE_USERNAME}
+      - SPRING_DATASOURCE_PASSWORD=${SPRING_DATASOURCE_PASSWORD}
+      - SPRING_DATASOURCE_DRIVER_CLASS_NAME=${SPRING_DATASOURCE_DRIVER_CLASS_NAME}
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=${SPRING_JPA_HIBERNATE_DDL_AUTO}
+      - SPRING_JPA_SHOW_SQL=${SPRING_JPA_SHOW_SQL}
+      - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=${SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT}
+      - SERVER_PORT=${SERVER_PORT}
+    restart: always
+    depends_on:
+      mysql:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    networks:
+      - fullstack
+
+networks:
+  fullstack:
+    driver: bridge
+
