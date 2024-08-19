@@ -40,3 +40,10 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+inventario-app/package-lock.json
+inventario-app/.vscode/
+inventario-app/src/img/
+inventario-app/src/app/debug.log
+inventario-app/src/app/list-product/debug.log
+.dockerignore
